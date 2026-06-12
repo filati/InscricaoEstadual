@@ -64,23 +64,31 @@ Não há dependências — basta Python 3.8+.
 ### Como biblioteca
 
 ```python
-from validador_ie import validar
+from validador_ie import validar, validar_todos
 
 validar("SP", "110.042.490.114")   # True
 validar("RS", "224/3658792")       # True
 validar("MG", "062.307.904/0080")  # False
+
+# Quando não se sabe o estado: testa em todas as UFs e retorna as siglas válidas
+validar_todos("110.042.490.114")   # ['SP']
 ```
 
 - O `numero` pode vir com **qualquer formatação** (pontos, barras, traços, espaços) — apenas os dígitos são usados (e a letra `P`, no caso de produtor rural de SP).
-- A função levanta `ValueError` se a UF não for reconhecida.
+- A função `validar` levanta `ValueError` se a UF não for reconhecida.
 
 ### Na linha de comando
 
 ```bash
-python3 validador_ie.py SP 110.042.490.114   # -> SP 110.042.490.114: VALIDA
+python3 validador_ie.py SP 110.042.490.114   # valida numa UF específica
+python3 validador_ie.py 110.042.490.114       # testa em TODAS as UFs
 python3 validador_ie.py --listar             # lista as UFs suportadas
 python3 validador_ie.py --teste              # roda os auto-testes
 ```
+
+> Como vários estados usam o mesmo algoritmo de dígito verificador, um número
+> pode ser estruturalmente válido em mais de uma UF. O modo "todas as UFs" lista
+> todas as siglas em que o número é válido (ou avisa se for inválido em todas).
 
 ### UFs suportadas
 

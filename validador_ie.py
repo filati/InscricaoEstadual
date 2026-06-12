@@ -8,13 +8,16 @@ ESTADUAL" oficial do Sintegra, cujos textos estao em regras/<estado>.txt.
 O exemplo numerico de cada texto e usado como teste em testar() / --teste.
 
 Uso como biblioteca:
-    from validador_ie import validar
+    from validador_ie import validar, validar_todos
     validar("SP", "110.042.490.114")   # -> True
+    validar_todos("110.042.490.114")   # -> ['SP', ...] UFs em que e valida
 
 Uso na linha de comando:
-    python3 validador_ie.py SP 110.042.490.114
-    python3 validador_ie.py --teste        # roda os auto-testes
-    python3 validador_ie.py --listar        # lista UFs suportadas
+    python3 validador_ie.py SP 110.042.490.114   # valida numa UF
+    python3 validador_ie.py 110.042.490.114       # testa em TODAS as UFs
+    python3 validador_ie.py --todos 11111114      # idem (forma explicita)
+    python3 validador_ie.py --teste               # roda os auto-testes
+    python3 validador_ie.py --listar              # lista UFs suportadas
 """
 import functools
 import re
@@ -419,6 +422,15 @@ def validar(uf, numero):
     return VALIDADORES[uf](numero)
 
 
+def validar_todos(numero):
+    """Testa 'numero' contra TODAS as UFs.
+
+    Retorna uma lista (ordenada) das siglas em que o numero e uma IE valida.
+    Util quando nao se sabe o estado de origem do numero.
+    """
+    return [uf for uf in sorted(VALIDADORES) if VALIDADORES[uf](numero)]
+
+
 # ---------------------------------------------------------------------------
 # Auto-testes (exemplos extraidos dos textos oficiais em /regras)
 # ---------------------------------------------------------------------------
@@ -523,9 +535,20 @@ def _main(argv):
     if argv[0] == "--listar":
         print(", ".join(sorted(VALIDADORES)))
         return 0
-    if len(argv) < 2:
-        print("Uso: python3 validador_ie.py <UF> <numero>", file=sys.stderr)
-        return 2
+
+    # Modo "todos os estados": um unico argumento (numero) ou flag --todos.
+    if argv[0] == "--todos":
+        argv = argv[1:]
+    if len(argv) == 1:
+        numero = argv[0]
+        achados = validar_todos(numero)
+        if achados:
+            print(f"{numero}: válida em {', '.join(achados)}")
+        else:
+            print(f"{numero}: inválida em todos os estados")
+        return 0 if achados else 1
+
+    # Modo normal: <UF> <numero>
     uf, numero = argv[0], argv[1]
     try:
         ok = validar(uf, numero)
