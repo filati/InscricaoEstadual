@@ -1,5 +1,10 @@
 # Validador de Inscrição Estadual (IE) — Brasil
 
+[![Licença: MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Sem dependências](https://img.shields.io/badge/depend%C3%AAncias-nenhuma-success.svg)](#)
+[![Cobertura](https://img.shields.io/badge/UFs-27%20(26%20estados%20%2B%20DF)-orange.svg)](#ufs-suportadas)
+
 **Validador de Inscrição Estadual para os 26 estados + Distrito Federal**, escrito em Python puro (sem dependências externas), acompanhado das **regras oficiais de cada estado** em formato legível.
 
 O projeto tem duas partes:
