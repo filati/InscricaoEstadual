@@ -29,6 +29,18 @@ Os roteiros originais têm formatação irregular e, em alguns estados, exemplos
 
 ---
 
+## As regras ainda são válidas? (atualizado em junho de 2026)
+
+**Sim.** Os algoritmos de dígito verificador da Inscrição Estadual são estáveis e seguem em uso — diversas Secretarias de Fazenda ainda publicam oficialmente o "Cálculo do DV" (por exemplo, a [Sefaz-BA](https://www.sefaz.ba.gov.br/inspetoria-eletronica/icms/cadastro/calculo-dv/)).
+
+O **Sintegra não foi descontinuado**: o portal nacional ([sintegra.gov.br](http://www.sintegra.gov.br/)) continua no ar, mas a **consulta pública de cada estado hoje é feita pelo portal da respectiva SEFAZ** (ex.: Sintegra/PR, Sintegra/PB, Sefaz-GO, Sefaz-MA, etc.). Para consultar uma IE específica, prefira o portal da SEFAZ do estado.
+
+> ⚠️ **Validação estrutural ≠ situação cadastral.** Este projeto confere apenas o **formato e o dígito verificador** do número. Uma IE estruturalmente válida pode estar **baixada, suspensa, inapta, nula** ou nunca ter existido. Para saber a situação real (Ativa/Suspensa/Baixada/Inapta/Nula), é preciso consultar o portal da SEFAZ.
+
+**De olho na Reforma Tributária:** a transição para IBS/CBS (LC 214/2025) cria um cadastro unificado de contribuintes e, a partir de **julho de 2026**, um **CNPJ alfanumérico** (cujo dígito verificador continua sendo calculado por módulo 11, usando o valor dos caracteres). Durante a transição (2026–2033), as Inscrições Estaduais continuam em uso e as regras deste repositório permanecem aplicáveis — mas vale acompanhar as SEFAZ e o Comitê Gestor do IBS, pois mudanças futuras podem exigir atualização.
+
+---
+
 ## Estrutura do projeto
 
 ```
