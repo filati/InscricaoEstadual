@@ -15,7 +15,7 @@ Uso como biblioteca:
 Uso na linha de comando:
     python3 validador_ie.py SP 110.042.490.114   # valida numa UF
     python3 validador_ie.py 110.042.490.114       # testa em TODAS as UFs
-    python3 validador_ie.py --todos 11111114      # idem (forma explicita)
+    python3 validador_ie.py -v 11111114           # idem, detalhando UF por UF
     python3 validador_ie.py --teste               # roda os auto-testes
     python3 validador_ie.py --listar              # lista UFs suportadas
 """
@@ -536,12 +536,19 @@ def _main(argv):
         print(", ".join(sorted(VALIDADORES)))
         return 0
 
-    # Modo "todos os estados": um unico argumento (numero) ou flag --todos.
-    if argv[0] == "--todos":
-        argv = argv[1:]
+    # Flags opcionais (em qualquer posicao).
+    verbose = "--verbose" in argv or "-v" in argv
+    argv = [a for a in argv if a not in ("--verbose", "-v", "--todos")]
+
+    # Modo "todos os estados": um unico argumento (o numero).
     if len(argv) == 1:
         numero = argv[0]
         achados = validar_todos(numero)
+        if verbose:
+            for uf in sorted(VALIDADORES):
+                ok = VALIDADORES[uf](numero)
+                print(f"  {uf}  {'válida' if ok else 'inválida'}")
+            print("  " + "-" * 16)
         if achados:
             print(f"{numero}: válida em {', '.join(achados)}")
         else:

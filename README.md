@@ -82,6 +82,7 @@ validar_todos("110.042.490.114")   # ['SP']
 ```bash
 python3 validador_ie.py SP 110.042.490.114   # valida numa UF específica
 python3 validador_ie.py 110.042.490.114       # testa em TODAS as UFs
+python3 validador_ie.py -v 110.042.490.114    # idem, detalhando UF por UF
 python3 validador_ie.py --listar             # lista as UFs suportadas
 python3 validador_ie.py --teste              # roda os auto-testes
 ```
