@@ -1,0 +1,34 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — ALAGOAS (AL)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_AL.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos (8 da base + 1 verificador).
+- Os dois primeiros dígitos são 24 (código do estado).
+- 3º dígito = tipo de empresa: 0 Normal, 3 Produtor Rural,
+  5 Substituta, 7 Micro-Empresa Ambulante, 8 Micro-Empresa.
+- Máscara: 24XNNNNN-D
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (esq.→dir.): 9 8 7 6 5 4 3 2 (sobre os 8 dígitos base).
+
+Passos:
+  1. Some os produtos dígito × peso.
+  2. Multiplique a soma por 10.
+  3. Resto = (soma × 10) % 11.
+  4. Dígito verificador = resto. Se o resto for 10, o dígito é 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 240000048
+  Base: 2 4 0 0 0 0 0 4
+  Soma = 58 → 58 × 10 = 580 → 580 % 11 = 8  →  DV = 8

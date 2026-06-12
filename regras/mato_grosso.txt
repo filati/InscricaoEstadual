@@ -1,0 +1,31 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — MATO GROSSO (MT)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_MT.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 11 dígitos (10 da base + 1 verificador).
+- Números menores são completados com zeros à esquerda.
+- Máscara: NNNNNNNNNN-D
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (da esquerda para a direita): 3 2 9 8 7 6 5 4 3 2
+
+Passos:
+  1. Multiplique cada dígito da base pelo peso correspondente.
+  2. Some todos os produtos.
+  3. Calcule o resto da divisão da soma por 11.
+  4. Se o resto for 0 ou 1, o dígito é 0; caso contrário, é 11 - resto.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 0013000001-9
+  Base: 0 0 1 3 0 0 0 0 0 1  →  soma = 35, resto = 2, 11-2 = 9  →  DV = 9

@@ -1,0 +1,32 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — PARANÁ (PR)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_PR.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 10 dígitos (8 da base + 2 verificadores).
+- Máscara: NNNNNNNN-DD
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+São dois dígitos verificadores, ambos por módulo 11.
+
+1º dígito verificador:
+  Pesos (esq.→dir.): 3 2 7 6 5 4 3 2 (sobre os 8 dígitos base).
+  DV = 11 - (soma % 11). Se der 10 ou 11, DV = 0.
+
+2º dígito verificador:
+  Pesos (esq.→dir.): 4 3 2 7 6 5 4 3 2 (sobre os 8 base + 1º DV).
+  DV = 11 - (soma % 11). Se der 10 ou 11, DV = 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 123.45678-50
+  1º DV: soma = 138, resto = 6, 11-6 = 5       →  5
+  2º DV: soma = 166, resto = 1, 11-1 = 10 → 0  →  0

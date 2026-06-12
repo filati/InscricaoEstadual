@@ -1,0 +1,46 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — SÃO PAULO (SP)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_SP.html
+
+
+FORMATO
+----------------------------------------------------------------------
+Há dois formatos válidos:
+
+A) Industrial/comercial: 12 dígitos. O 9º e o 12º são verificadores.
+B) Produtor rural: começa com 'P' seguido de 12 dígitos
+   (P-0MMMSSSSD000). O dígito D (10ª posição) é o verificador.
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11; o dígito é o algarismo mais à direita do resto
+(ou seja, resto % 10).
+
+A) INDUSTRIAL/COMERCIAL (12 dígitos):
+   1º DV (9ª posição): pesos 1 3 4 5 6 7 8 10 sobre os 8 primeiros.
+                       DV = (soma % 11) % 10.
+   2º DV (12ª posição): pesos 3 2 10 9 8 7 6 5 4 3 2 sobre os 11
+                        primeiros. DV = (soma % 11) % 10.
+
+B) PRODUTOR RURAL (P + 12 dígitos):
+   Pesos 1 3 4 5 6 7 8 10 sobre os 8 dígitos 0MMMSSSS.
+   DV = (soma % 11) % 10.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+Industrial — IE: 110.042.490.114
+  1º DV: soma = 164, 164 % 11 = 10 → algarismo à direita = 0  →  0
+  2º DV: soma = 125, 125 % 11 = 4                            →  4
+
+Produtor   — IE: P-01100424.3/002  (D = 3)
+
+
+OBSERVAÇÕES
+----------------------------------------------------------------------
+- Em todas as contagens e cálculos, ignoram-se caracteres diferentes
+  da letra 'P' e dos algarismos 0-9.

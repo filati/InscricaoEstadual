@@ -1,0 +1,29 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — RORAIMA (RR)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_RR.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos (8 da base + 1 verificador).
+- Os dois primeiros dígitos são sempre 24.
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 9.
+Pesos (esq.→dir.): 1 2 3 4 5 6 7 8 (a própria posição do dígito).
+
+Passos:
+  1. Multiplique cada dígito da base pela sua posição (1 a 8).
+  2. Some os produtos.
+  3. Dígito verificador = soma % 9.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 24006153-6
+  Base: 2 4 0 0 6 1 5 3  →  soma = 105, 105 % 9 = 6  →  DV = 6

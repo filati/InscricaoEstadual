@@ -1,0 +1,37 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — AMAPÁ (AP)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_AP.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos (2 fixos + 6 da empresa + 1 verificador).
+- Os dois primeiros dígitos são sempre 03.
+- Máscara: 03NNNNNN-D
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11 com um valor inicial 'p' que depende da faixa.
+Pesos (esq.→dir.): 9 8 7 6 5 4 3 2 (sobre os 8 dígitos base).
+
+Faixas (sobre os 8 primeiros dígitos):
+  03000001 a 03017000  →  p = 5, d = 0
+  03017001 a 03019022  →  p = 9, d = 1
+  03019023 em diante    →  p = 0, d = 0
+
+Passos:
+  1. soma = p + (produtos dígito × peso).
+  2. resto = soma % 11.
+  3. DV = 11 - resto.
+  4. Se DV = 10, DV = 0. Se DV = 11, DV = d.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 030123459   (faixa com p = 5, d = 0)
+  Base: 0 3 0 1 2 3 4 5
+  Soma = 5 + 74 = 79 → resto = 2 → 11-2 = 9  →  DV = 9

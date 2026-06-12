@@ -1,0 +1,30 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — MARANHÃO (MA)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_MA.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos (2 fixos + 6 de ordem + 1 verificador).
+- Os dois primeiros dígitos são 12 (código do estado).
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (da esquerda para a direita): 9 8 7 6 5 4 3 2
+
+Passos:
+  1. Multiplique cada dígito da base pelo peso correspondente.
+  2. Some todos os produtos.
+  3. Calcule o resto da divisão da soma por 11.
+  4. Se o resto for 0 ou 1, o dígito é 0; caso contrário, é 11 - resto.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 120000385
+  Base: 1 2 0 0 0 0 3 8  →  soma = 50, resto = 6, 11-6 = 5  →  DV = 5

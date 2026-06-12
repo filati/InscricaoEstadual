@@ -1,0 +1,33 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — GOIÁS (GO)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_GO.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos (8 da base + 1 verificador).
+- Os dois primeiros dígitos (AB) podem ser 10, 11 ou de 20 a 29.
+- Máscara: AB.CDE.FGH-I
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (esq.→dir.): 9 8 7 6 5 4 3 2 (sobre os 8 dígitos base).
+
+Passos:
+  1. Some os produtos dígito × peso.
+  2. resto = soma % 11.
+  3. Se o resto for 0, DV = 0.
+     Se o resto for 1, DV = 1 quando a IE estiver entre 10103105 e
+     10119997; caso contrário, DV = 0.
+     Nos demais casos, DV = 11 - resto.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 10.987.654-7
+  Base: 1 0 9 8 7 6 5 4  →  soma = 202, resto = 4, 11-4 = 7  →  DV = 7

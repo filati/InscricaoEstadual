@@ -1,0 +1,42 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — MINAS GERAIS (MG)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_MG.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 13 dígitos.
+- Estrutura: 3 (código do município) + 6 (inscrição) +
+  2 (ordem do estabelecimento) + 2 (dígitos de controle).
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+São dois dígitos verificadores, com métodos diferentes.
+
+1º dígito verificador:
+  a. Insira um 0 logo após o código do município, formando o número
+     a trabalhar: município + 0 + inscrição + ordem (12 dígitos).
+  b. Multiplique os dígitos alternadamente por 1 e 2, da esquerda
+     para a direita.
+  c. Some os ALGARISMOS dos produtos (não os produtos).
+  d. DV = (próxima dezena cheia) - soma  =  (10 - soma % 10) % 10.
+
+2º dígito verificador:
+  a. Use município + inscrição + ordem + 1º DV (12 dígitos).
+  b. Multiplique, da direita para a esquerda, por 2, 3, 4, ..., 11,
+     reiniciando em 2 ao passar de 11.
+  c. Some os PRODUTOS.
+  d. DV = 11 - (soma % 11). Se o resto for 0 ou 1, DV = 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 062.307.904/0081
+  1º DV: número a trabalhar 062 0 307904 00 → soma dos algarismos = 32
+         → 40 - 32 = 8  →  1º DV = 8
+  2º DV: sobre 062307904008 → soma dos produtos = 219, resto = 10
+         → 11 - 10 = 1  →  2º DV = 1

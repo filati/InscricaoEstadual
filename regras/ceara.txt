@@ -1,0 +1,29 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — CEARÁ (CE)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_CE.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos (8 da base + 1 verificador).
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (da esquerda para a direita): 9 8 7 6 5 4 3 2
+
+Passos:
+  1. Multiplique cada dígito da base pelo peso correspondente.
+  2. Some todos os produtos.
+  3. Calcule o resto da divisão da soma por 11.
+  4. Dígito verificador = 11 - resto. Se o resultado for 10 ou 11, o dígito é 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 06000001-5
+  Base: 0 6 0 0 0 0 0 1  →  soma = 50, resto = 6, 11-6 = 5  →  DV = 5

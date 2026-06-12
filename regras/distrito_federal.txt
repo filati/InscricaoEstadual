@@ -1,0 +1,40 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — DISTRITO FEDERAL (DF)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_DF.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 13 dígitos (11 da base + 2 verificadores).
+- Estrutura: número sequencial + 001 (matriz) ou 002, 003... (filiais).
+- Máscara: 07.NNNNNN.NNN-DD
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+São dois dígitos verificadores, ambos por módulo 11.
+
+1º dígito verificador:
+  Pesos (esq.→dir.): 4 3 2 9 8 7 6 5 4 3 2 (sobre os 11 dígitos base).
+  DV = 11 - (soma % 11). Se der 10 ou 11, DV = 0.
+
+2º dígito verificador:
+  Pesos (esq.→dir.): 5 4 3 2 9 8 7 6 5 4 3 2 (sobre os 11 base + 1º DV).
+  DV = 11 - (soma % 11). Se der 10 ou 11, DV = 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 07300001001-09
+  1º DV: soma = 34, resto = 1, 11-1 = 10 → 0  →  0
+  2º DV: soma = 46, resto = 2, 11-2 = 9       →  9
+
+
+OBSERVAÇÕES
+----------------------------------------------------------------------
+- O roteiro oficial do Sintegra disponibilizava este conteúdo em
+  imagens (df1t.gif e df2t.gif), aqui transcritas. As imagens originais
+  estão preservadas em regras/imagens/.

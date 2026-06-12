@@ -1,0 +1,31 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — RIO GRANDE DO SUL (RS)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_RS.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 10 dígitos.
+- Estrutura: 3 (município) + 6 (empresa) + 1 (verificador).
+- Máscara: NNN/NNNNNNN
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (da esquerda para a direita): 2 9 8 7 6 5 4 3 2
+
+Passos:
+  1. Multiplique cada dígito da base pelo peso correspondente.
+  2. Some todos os produtos.
+  3. Calcule o resto da divisão da soma por 11.
+  4. Dígito verificador = 11 - resto. Se o resultado for 10 ou 11, o dígito é 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 224/3658792
+  Base: 2 2 4 3 6 5 8 7 9  →  soma = 207, resto = 9, 11-9 = 2  →  DV = 2

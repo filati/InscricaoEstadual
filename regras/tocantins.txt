@@ -1,0 +1,37 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — TOCANTINS (TO)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_TO.html
+
+
+FORMATO
+----------------------------------------------------------------------
+Há dois formatos válidos:
+
+A) Atual: 9 dígitos (8 da base + 1 verificador).
+B) Antigo: 11 dígitos. As posições 3 e 4 indicam o tipo e NÃO entram
+   no cálculo:
+     01 = Produtor Rural    02 = Indústria e Comércio
+     03 = Empresas Rudimentares    99 = Cadastro Antigo (suspensas).
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (esq.→dir.): 9 8 7 6 5 4 3 2.
+
+A) ATUAL (9 dígitos): pesos sobre os 8 dígitos base.
+B) ANTIGO (11 dígitos): pesos sobre os 2 primeiros dígitos + as
+   posições 5 a 10 (8 dígitos no total; as posições 3 e 4 são ignoradas).
+
+Em ambos: se o resto for menor que 2, DV = 0;
+caso contrário, DV = 11 - resto.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+Antigo — IE: 29010227836
+  Dígitos usados: 2 9 0 2 2 7 8 3  →  soma = 170, resto = 5,
+  11 - 5 = 6  →  DV = 6

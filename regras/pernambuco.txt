@@ -1,0 +1,36 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — PERNAMBUCO (PE)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_PE.html
+
+
+FORMATO
+----------------------------------------------------------------------
+Há dois formatos válidos:
+
+A) Atual (eFisco): 9 dígitos (7 da base + 2 verificadores).
+B) Antigo (CACEPE): 14 dígitos (13 da base + 1 verificador).
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+A) FORMATO ATUAL (9 dígitos) — módulo 11, dois dígitos:
+   1º DV: pesos 8 7 6 5 4 3 2 sobre os 7 dígitos base.
+          Se o resto for 0 ou 1, DV = 0; senão DV = 11 - resto.
+   2º DV: pesos 9 8 7 6 5 4 3 2 sobre os 7 base, somando ainda
+          (1º DV × 2). Mesma regra do resto.
+
+B) FORMATO ANTIGO (14 dígitos) — módulo 11, um dígito:
+   Pesos (esq.→dir.): 5 4 3 2 1 9 8 7 6 5 4 3 2 (sobre os 13 base).
+   DV = 11 - (soma % 11). Se DV > 9, subtraia 10.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+Atual   — IE: 0321418-40
+  1º DV: soma = 73, resto = 7, 11-7 = 4       →  4
+  2º DV: soma = 100, resto = 1               →  0
+
+Antigo  — IE: 18.1.001.0000004-9

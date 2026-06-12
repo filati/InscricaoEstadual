@@ -1,0 +1,29 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — PIAUÍ (PI)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_PI.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos (8 da base + 1 verificador).
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (da esquerda para a direita): 9 8 7 6 5 4 3 2
+
+Passos:
+  1. Multiplique cada dígito da base pelo peso correspondente.
+  2. Some todos os produtos.
+  3. Calcule o resto da divisão da soma por 11.
+  4. Dígito verificador = 11 - resto. Se o resultado for 10 ou 11, o dígito é 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 012345679
+  Base: 0 1 2 3 4 5 6 7  →  soma = 112, resto = 2, 11-2 = 9  →  DV = 9

@@ -1,0 +1,34 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — ACRE (AC)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_AC.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 13 dígitos (11 da base + 2 verificadores).
+- Os dois primeiros dígitos são sempre 01.
+- Máscara: 01.NNN.NNN/NNN-DD
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+São dois dígitos verificadores, ambos por módulo 11.
+
+1º dígito verificador:
+  Pesos (esq.→dir.): 4 3 2 9 8 7 6 5 4 3 2 (sobre os 11 dígitos base).
+  DV = 11 - (soma % 11). Se der 10 ou 11, DV = 0.
+
+2º dígito verificador:
+  Pesos (esq.→dir.): 5 4 3 2 9 8 7 6 5 4 3 2 (sobre os 11 base + 1º DV).
+  DV = 11 - (soma % 11). Se der 10 ou 11, DV = 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 01.004.823/001-12
+  Base: 0 1 0 0 4 8 2 3 0 0 1
+  1º DV: soma = 120, resto = 10, 11-10 = 1  →  1
+  2º DV: soma = 141, resto = 9,  11-9  = 2  →  2

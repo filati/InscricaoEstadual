@@ -1,0 +1,32 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — RIO GRANDE DO NORTE (RN)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_RN.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos ou 10 dígitos (ambos válidos).
+- Os dois primeiros dígitos são sempre 20.
+- Máscara: 20.NNN.NNN-D  (9)  ou  20.N.NNN.NNN-D  (10)
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (esq.→dir.):
+  - 9 dígitos:  9 8 7 6 5 4 3 2
+  - 10 dígitos: 10 9 8 7 6 5 4 3 2
+
+Passos:
+  1. Some os produtos dígito × peso (sobre a base, sem o DV).
+  2. Multiplique a soma por 10 e calcule o resto da divisão por 11.
+  3. Dígito verificador = resto. Se o resto for 10, o dígito é 0.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE (9):  20.040.040-1  →  soma = 54, ×10 = 540, resto = 1  →  DV = 1
+IE (10): 20.0.040.040-0 →  soma = 56, ×10 = 560, resto = 10 →  DV = 0

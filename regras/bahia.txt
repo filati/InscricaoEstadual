@@ -1,0 +1,40 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — BAHIA (BA)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_BA.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 8 dígitos (6 base + 2 DV) ou 9 dígitos (7 base + 2 DV).
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+O módulo usado depende de um dígito da inscrição:
+  - 8 dígitos: observa-se o 1º dígito;
+  - 9 dígitos: observa-se o 2º dígito.
+Se esse dígito ∈ {0,1,2,3,4,5,8} → módulo 10;
+se esse dígito ∈ {6,7,9}        → módulo 11.
+
+São dois dígitos verificadores. Em ambos, os pesos são 2, 3, 4, ...
+aplicados da direita para a esquerda sobre os dígitos considerados.
+
+  1. 2º DV (o mais à direita): pesos sobre os dígitos da base.
+  2. 1º DV: pesos sobre a base acrescida do 2º DV.
+
+Regra do dígito a partir do resto:
+  - módulo 10: DV = (10 - resto) % 10;
+  - módulo 11: DV = 0 se o resto for 0 ou 1; senão DV = 11 - resto.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 123456-63   (8 dígitos, 1º dígito = 1 → módulo 10)
+  2º DV: pesos 7 6 5 4 3 2 sobre 123456 → soma 77, resto 7 → 10-7 = 3
+  1º DV: pesos 8 7 6 5 4 3 2 sobre 1234563 → soma 104, resto 4 → 6
+
+Outros exemplos oficiais: 612345-57 (8 díg., módulo 11) e
+1000003-06 (9 dígitos).

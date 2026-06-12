@@ -1,0 +1,37 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — AMAZONAS (AM)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_AM.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 9 dígitos (8 da base + 1 verificador).
+- Máscara: 99.999.999-9
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (esq.→dir.): 9 8 7 6 5 4 3 2 (sobre os 8 dígitos base).
+
+Passos:
+  1. Some os produtos dígito × peso.
+  2. Se a soma for menor que 11: DV = 11 - soma.
+  3. Caso contrário, resto = soma % 11:
+       - se o resto for 0 ou 1, DV = 0;
+       - caso contrário, DV = 11 - resto.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 111111110
+  Base: 1 1 1 1 1 1 1 1  →  soma = 44, resto = 0  →  DV = 0
+
+
+OBSERVAÇÕES
+----------------------------------------------------------------------
+- O roteiro oficial do Sintegra traz apenas a máscara, sem exemplo
+  numérico; o exemplo acima foi construído aplicando o algoritmo.

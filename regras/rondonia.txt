@@ -1,0 +1,37 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — RONDÔNIA (RO)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_RO.html
+
+
+FORMATO
+----------------------------------------------------------------------
+Há dois formatos válidos:
+
+A) Atual (desde 01/08/2000): 14 dígitos (13 da base + 1 verificador).
+B) Antigo (até 31/07/2000): 9 dígitos —
+   3 (município) + 5 (empresa) + 1 (verificador).
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11 (em ambos os formatos).
+
+A) ATUAL (14 dígitos):
+   Pesos (esq.→dir.): 6 5 4 3 2 9 8 7 6 5 4 3 2 (sobre os 13 base).
+
+B) ANTIGO (9 dígitos):
+   Pesos (esq.→dir.): 6 5 4 3 2 (sobre os 5 dígitos da empresa,
+   ignorando os 3 dígitos do município).
+
+Em ambos: DV = 11 - (soma % 11). Se DV > 9, subtraia 10.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+Atual  — IE: 0000000062521-3
+  Empresa relevante: 62521 → soma = 74, resto = 8, 11-8 = 3  →  DV = 3
+
+Antigo — IE: 101.62521-3  (mesmo cálculo sobre 62521)

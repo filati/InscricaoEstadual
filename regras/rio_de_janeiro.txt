@@ -1,0 +1,37 @@
+======================================================================
+ INSCRIÇÃO ESTADUAL — RIO DE JANEIRO (RJ)
+======================================================================
+
+Fonte oficial: Sintegra
+http://www.sintegra.gov.br/Cad_Estados/cad_RJ.html
+
+
+FORMATO
+----------------------------------------------------------------------
+- Tamanho: 8 dígitos (7 da base + 1 verificador).
+- Máscara: 99.999.99-9
+
+
+CÁLCULO DO DÍGITO VERIFICADOR
+----------------------------------------------------------------------
+Método: módulo 11.
+Pesos (esq.→dir.): 2 7 6 5 4 3 2 (sobre os 7 dígitos base).
+
+Passos:
+  1. Some os produtos dígito × peso.
+  2. resto = soma % 11.
+  3. Se o resto for menor ou igual a 1, DV = 0;
+     caso contrário, DV = 11 - resto.
+
+
+EXEMPLO
+----------------------------------------------------------------------
+IE: 11111114
+  Base: 1 1 1 1 1 1 1  →  soma = 29, resto = 7, 11-7 = 4  →  DV = 4
+
+
+OBSERVAÇÕES
+----------------------------------------------------------------------
+- O roteiro oficial disponibilizava a fórmula em imagem (rj.gif), aqui
+  transcrita; não há exemplo numérico oficial. A imagem original está
+  preservada em regras/imagens/.
